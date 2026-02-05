@@ -40,7 +40,7 @@ def start_21_game(message):
     markup.add(button1, button2)
 
 
-    text = f'<b>🍀 21 · начни игру!</b>\n·····················\n<b>💸 Ставка:</b> {bet} p¢'
+    text = f'<b>🍀 21 · начни игру!</b>\n<code>·····················</code>\n<b>💸 Ставка:</b> {bet} p¢'
 
     token_bot.send_message(message.chat.id, text, reply_markup=markup, parse_mode='HTML')
 
