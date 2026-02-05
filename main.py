@@ -39,9 +39,10 @@ def start_21_game(message):
     button2 = InlineKeyboardButton(text='Отменить ❌', callback_data='...')
     markup.add(button1, button2)
 
-    token_bot.send_message(message.chat.id, f'🍀 21 · начни игру!\n'
-                                            f'·····················\n'
-                                            f'💸 Ставка: {bet} мирончики.', reply_markup=markup)
+
+    text = f'<b>🍀 21 · начни игру!</b>\n·····················\n<b>💸 Ставка:</b> {bet} p¢'
+
+    token_bot.send_message(message.chat.id, text, reply_markup=markup, parse_mode='HTML')
 
 
 @token_bot.message_handler(commands=['21'])
@@ -55,8 +56,8 @@ def game_21(message):
                  'чей итоговый счет ближе к 21, но перебор автоматически означает поражение.</blockquote>\n')
 
     name = message.from_user.first_name
-    message_start = (f'👀{name}, чтобы начать игру, используй команду:\n\n♥/21 [ставка]\nПример:<pre>/21 100</pre>\n'
-                     f'Пример:<pre>очко 100</pre>')
+    message_start = (f'👀{name}, чтобы начать игру, используй команду:\n\n♥<u><code>/21</code> <b>[ставка]</b></u>\nПример:<code> /21 100</code>\n'
+                     f'Пример:<code> очко 100</code>')
 
     token_bot.send_message(message.chat.id, rule_game + message_start, parse_mode='HTML')
 
